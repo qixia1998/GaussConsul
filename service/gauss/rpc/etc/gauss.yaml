@@ -1,0 +1,17 @@
+Name: gauss-rpc
+ListenOn: 0.0.0.0:8081
+Mode: dev
+
+# 注册中心配置
+Consul:
+  Host: 127.0.0.1:8500
+  Key: gauss-rpc # service name registered to Consul
+  Meta:
+    Protocol: grpc
+  Tag:
+    - gauss
+    - rpc
+
+# 数据库配置
+GaussDB:
+    DataSource: postgres://user:password@host:port/db_name?sslmode=disable

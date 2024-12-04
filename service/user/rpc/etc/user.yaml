@@ -1,0 +1,33 @@
+Name: user-rpc
+ListenOn: 0.0.0.0:8080
+Mode: dev
+
+# 注册中心配置
+Consul:
+  Host: 127.0.0.1:8500
+  Key: user-rpc # service name registered to Consul
+  Meta:
+    Protocol: grpc
+  Tag:
+    - user
+    - rpc
+
+# 数据库配置
+GaussDB:
+  DataSource: postgres://user:password@host:port/db_name?sslmode=disable
+
+# 密码加密盐
+Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe # 示例
+
+# 监控
+#Prometheus:
+#  Host: 0.0.0.0
+#  Port: 9090
+#  Path: /metrics
+
+# 链路追踪
+#Telemetry:
+#  Name: user.rpc
+#  Endpoint: http://jaeger:14268/api/traces
+#  Sampler: 1.0
+#  Batcher: jaeger

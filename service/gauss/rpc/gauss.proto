@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package gauss;
+
+option go_package = "./gauss";
+
+message HealthCheckRequest {
+
+}
+
+message HealthCheckResponse {
+  string Status = 1;
+}
+
+service Gauss {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}

@@ -1,0 +1,35 @@
+Name: user-api
+Host: 0.0.0.0
+Port: 8888
+Mode: dev
+
+# jwtAuth
+Auth:
+  AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl # 示例
+  AccessExpire: 86400
+
+UserRpc:
+  Target: consul://127.0.0.1:8500/user-rpc?wait=14s
+
+# 监控
+#Prometheus:
+#  Host: 0.0.0.0
+#  Port: 9080
+#  Path: /metrics
+
+# 链路追踪
+#Telemetry:
+#  Name: user.api
+#  Endpoint: http://jaeger:14268/api/traces
+#  Sampler: 1.0
+#  Batcher: jaeger
+
+Log:
+  ServiceName: user-api
+  Level: debug
+
+#rpc service
+UserRpcConf:
+  Endpoints:
+    - 127.0.0.1:8080
+  NonBlock: true

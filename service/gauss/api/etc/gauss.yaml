@@ -1,0 +1,31 @@
+Name: gauss-api
+Host: 0.0.0.0
+Port: 9999
+Mode: dev
+
+GaussRpc:
+  Target: consul://127.0.0.1:8500/gauss-rpc?wait=14s
+
+
+# 监控
+#Prometheus:
+#  Host: 0.0.0.0
+#  Port: 9080
+#  Path: /metrics
+
+# 链路追踪
+#Telemetry:
+#  Name: user.api
+#  Endpoint: http://jaeger:14268/api/traces
+#  Sampler: 1.0
+#  Batcher: jaeger
+
+Log:
+  ServiceName: gauss-api
+  Level: debug
+
+#rpc service
+GaussRpcConf:
+  Endpoints:
+    - 127.0.0.1:8081
+  NonBlock: true

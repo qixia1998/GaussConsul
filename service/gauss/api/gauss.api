@@ -1,0 +1,11 @@
+type (
+	GaussHealthCheckResp {
+		Status string
+	}
+)
+
+service Gauss {
+	@handler HealthCheck
+	post /api/gauss/healthy returns (GaussHealthCheckResp)
+}
+
